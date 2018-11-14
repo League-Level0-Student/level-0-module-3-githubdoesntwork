@@ -5,22 +5,37 @@ package elseif;
 
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 public class HighLowGame {
 
 	public static void main(String[] args) {
+		String guessstring;
 		// 3. Change this line to give you a random number between 1 - 100. 
-		int random = new Random().nextInt(5);
-		
+		int random = new Random().nextInt(100);
+		for (int j = 0; j < 11; j++) {
+			
+		 
 		// 2. Print out the random variable above
-		
+		System.out.println(random);
 		// 11. Repeat steps 1 to 10 ten times
 		
 			// 1. Ask the user for a guess using a pop-up window, and save their response 
-
+guessstring = JOptionPane.showInputDialog("Choose a number between 1 and 100. Guess my number!");
 			// 4. Convert the users’ answer to an int (Integer.parseInt(string))
-			
+			int guessint = Integer.parseInt(guessstring);
 			// 5. if the guess is correct
-				// 6. Win
+			if(guessint == random) {
+				JOptionPane.showMessageDialog(null, "You Win!");
+				System.exit(0);
+			}else if(guessint > random) {
+				JOptionPane.showMessageDialog(null, "Too High!");
+			}else if(guessint < random) {
+				JOptionPane.showMessageDialog(null, "Too Low!");
+			}
+		}
+		JOptionPane.showMessageDialog(null, "You have failed to guess my number. My number is "+random+"!");
+	// 6. Win
 				// 12. Use "System.exit(0);" to quit the game if the user guessed the right answer.
 			// 7. if the guess is high
 				// 8. Tell them it's too high
